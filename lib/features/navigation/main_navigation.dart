@@ -2,9 +2,12 @@ import 'package:brew_brother_cafe/features/home/presentation/screens/home_screen
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../core/constants/app_colors.dart';
+import '../../core/widgets/animated_fab.dart';
 import '../search/search_page.dart';
-import '../cart/cart_page.dart';
+import '../favorites/presentation/pages/favorites_page.dart';
 import '../profile/presentation/pages/profile_page.dart';
+import '../cart/cart_page.dart';
+import 'animated_bottom_nav.dart';
 
 class MainNavigation extends StatefulWidget {
   const MainNavigation({super.key});
@@ -13,65 +16,100 @@ class MainNavigation extends StatefulWidget {
   State<MainNavigation> createState() => _MainNavigationState();
 }
 
-class _MainNavigationState extends State<MainNavigation> {
+class _MainNavigationState extends State<MainNavigation>
+    with TickerProviderStateMixin {
   int _selectedIndex = 0;
+  late AnimationController _fabController;
+  late Animation<double> _fabAnimation;
 
   final List<Widget> _pages = [
     const HomeScreen(),
     const SearchPage(),
+    const FavoritesPage(),
     const CartPage(),
     const ProfilePage(),
   ];
 
   @override
+  void initState() {
+    super.initState();
+    _fabController = AnimationController(
+      duration: const Duration(milliseconds: 300),
+      vsync: this,
+    );
+    _fabAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(parent: _fabController, curve: Curves.easeOut),
+    );
+    _fabController.forward();
+  }
+
+  @override
+  void dispose() {
+    _fabController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _pages[_selectedIndex],
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.vertical(top: Radius.circular(20.r)),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withValues(alpha: 0.1),
-              blurRadius: 10,
-              offset: const Offset(0, -2),
+      extendBody: true,
+      body: Stack(
+        children: [
+          _pages[_selectedIndex],
+          // Floating Action Button
+          Positioned(
+            bottom: 110.h,
+            right: 20.w,
+            child: ScaleTransition(
+              scale: _fabAnimation,
+              child: SpeedDialFAB(
+                icon: Icons.add_shopping_cart,
+                activeIcon: Icons.close,
+                children: [
+                  SpeedDialChild(
+                    icon: Icons.local_cafe,
+                    label: 'Quick Order',
+                    backgroundColor: AppColors.primary,
+                    onTap: () {
+                      // Handle quick order
+                    },
+                  ),
+                  SpeedDialChild(
+                    icon: Icons.favorite,
+                    label: 'Favorites',
+                    backgroundColor: AppColors.favorite,
+                    onTap: () {
+                      setState(() => _selectedIndex = 2);
+                    },
+                  ),
+                  SpeedDialChild(
+                    icon: Icons.search,
+                    label: 'Search',
+                    backgroundColor: AppColors.secondary,
+                    onTap: () {
+                      setState(() => _selectedIndex = 1);
+                    },
+                  ),
+                ],
+              ),
             ),
-          ],
-        ),
-        child: BottomNavigationBar(
-          currentIndex: _selectedIndex,
-          onTap: (index) => setState(() => _selectedIndex = index),
-          type: BottomNavigationBarType.fixed,
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          selectedItemColor: AppColors.primary,
-          unselectedItemColor: AppColors.textLight,
-          selectedFontSize: 12.sp,
-          unselectedFontSize: 12.sp,
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home_outlined, size: 24.sp),
-              activeIcon: Icon(Icons.home, size: 24.sp),
-              label: 'Home',
+          ),
+          // Glassy Bottom Navigation
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: AnimatedBottomNav(
+              currentIndex: _selectedIndex,
+              onTap: (index) {
+                setState(() => _selectedIndex = index);
+                // Restart FAB animation on navigation
+                _fabController.reset();
+                _fabController.forward();
+              },
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.search_outlined, size: 24.sp),
-              activeIcon: Icon(Icons.search, size: 24.sp),
-              label: 'Search',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart_outlined, size: 24.sp),
-              activeIcon: Icon(Icons.shopping_cart, size: 24.sp),
-              label: 'Cart',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person_outline, size: 24.sp),
-              activeIcon: Icon(Icons.person, size: 24.sp),
-              label: 'Profile',
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
