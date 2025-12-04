@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/widgets/glassmorphic_container.dart';
@@ -29,11 +28,11 @@ class ProfilePage extends StatelessWidget {
           child: Column(
             children: [
               _buildProfileHeader(),
-              SizedBox(height: 24.h),
+              const SizedBox(height: 24),
               _buildStatisticsCards(context),
-              SizedBox(height: 24.h),
+              const SizedBox(height: 24),
               _buildSettingsSection(),
-              SizedBox(height: 24.h),
+              const SizedBox(height: 24),
             ],
           ),
         ),
@@ -43,12 +42,12 @@ class ProfilePage extends StatelessWidget {
 
   Widget _buildProfileHeader() {
     return Container(
-      padding: EdgeInsets.all(24.w),
+      padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
         gradient: AppColors.primaryGradient,
         borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(30.r),
-          bottomRight: Radius.circular(30.r),
+          bottomLeft: Radius.circular(30),
+          bottomRight: Radius.circular(30),
         ),
         boxShadow: [
           BoxShadow(
@@ -66,24 +65,24 @@ class ProfilePage extends StatelessWidget {
               Text(
                 'Profile',
                 style: TextStyle(
-                  fontSize: 28.sp,
+                  fontSize: 28,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                 ),
               ),
               IconButton(
-                icon: Icon(Icons.edit, color: Colors.white, size: 24.sp),
+                icon: Icon(Icons.edit, color: Colors.white, size: 24),
                 onPressed: () {
                   // Edit profile
                 },
               ),
             ],
           ),
-          SizedBox(height: 20.h),
+          const SizedBox(height: 20),
           Stack(
             children: [
               Container(
-                padding: EdgeInsets.all(4.w),
+                padding: const EdgeInsets.all(4),
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(color: Colors.white, width: 3),
@@ -96,7 +95,7 @@ class ProfilePage extends StatelessWidget {
                   ],
                 ),
                 child: CircleAvatar(
-                  radius: 50.r,
+                  radius: 50,
                   backgroundColor: Colors.white,
                   backgroundImage: const NetworkImage(
                     'https://avatar.iran.liara.run/public/42',
@@ -107,50 +106,50 @@ class ProfilePage extends StatelessWidget {
                 bottom: 0,
                 right: 0,
                 child: Container(
-                  padding: EdgeInsets.all(8.w),
+                  padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
                     color: AppColors.success,
                     shape: BoxShape.circle,
                     border: Border.all(color: Colors.white, width: 2),
                   ),
-                  child: Icon(Icons.check, color: Colors.white, size: 16.sp),
+                  child: Icon(Icons.check, color: Colors.white, size: 16),
                 ),
               ),
             ],
           ),
-          SizedBox(height: 16.h),
+          const SizedBox(height: 16),
           Text(
             'John Doe',
             style: TextStyle(
-              fontSize: 24.sp,
+              fontSize: 24,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),
           ),
-          SizedBox(height: 4.h),
+          const SizedBox(height: 4),
           Text(
             'john.doe@email.com',
             style: TextStyle(
-              fontSize: 14.sp,
+              fontSize: 14,
               color: Colors.white.withOpacity(0.9),
             ),
           ),
-          SizedBox(height: 8.h),
+          const SizedBox(height: 8),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 6.h),
+            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 6),
             decoration: BoxDecoration(
               color: Colors.white.withOpacity(0.2),
-              borderRadius: BorderRadius.circular(20.r),
+              borderRadius: BorderRadius.circular(20),
             ),
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Icon(Icons.workspace_premium, color: Colors.amber, size: 16.sp),
-                SizedBox(width: 4.w),
+                Icon(Icons.workspace_premium, color: Colors.amber, size: 16),
+                const SizedBox(width: 4),
                 Text(
                   'Gold Member',
                   style: TextStyle(
-                    fontSize: 12.sp,
+                    fontSize: 12,
                     fontWeight: FontWeight.w600,
                     color: Colors.white,
                   ),
@@ -165,7 +164,7 @@ class ProfilePage extends StatelessWidget {
 
   Widget _buildStatisticsCards(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20.w),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Row(
         children: [
           Expanded(
@@ -176,7 +175,7 @@ class ProfilePage extends StatelessWidget {
               color: AppColors.primary,
             ),
           ),
-          SizedBox(width: 12.w),
+          const SizedBox(width: 12),
           Expanded(
             child: BlocBuilder<FavoritesBloc, FavoritesState>(
               builder: (context, state) {
@@ -193,7 +192,7 @@ class ProfilePage extends StatelessWidget {
               },
             ),
           ),
-          SizedBox(width: 12.w),
+          const SizedBox(width: 12),
           Expanded(
             child: _buildStatCard(
               icon: Icons.stars,
@@ -214,10 +213,10 @@ class ProfilePage extends StatelessWidget {
     required Color color,
   }) {
     return Container(
-      padding: EdgeInsets.all(16.w),
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(16.r),
+        borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.05),
@@ -229,18 +228,18 @@ class ProfilePage extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            padding: EdgeInsets.all(10.w),
+            padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
               color: color.withOpacity(0.1),
               shape: BoxShape.circle,
             ),
-            child: Icon(icon, color: color, size: 24.sp),
+            child: Icon(icon, color: color, size: 24),
           ),
-          SizedBox(height: 8.h),
+          const SizedBox(height: 8),
           Text(
             value,
             style: TextStyle(
-              fontSize: 20.sp,
+              fontSize: 20,
               fontWeight: FontWeight.bold,
               color: AppColors.textPrimary,
             ),
@@ -248,7 +247,7 @@ class ProfilePage extends StatelessWidget {
           Text(
             title,
             style: TextStyle(
-              fontSize: 12.sp,
+              fontSize: 12,
               color: AppColors.textSecondary,
             ),
           ),
@@ -259,19 +258,19 @@ class ProfilePage extends StatelessWidget {
 
   Widget _buildSettingsSection() {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20.w),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             'Settings',
             style: TextStyle(
-              fontSize: 20.sp,
+              fontSize: 20,
               fontWeight: FontWeight.bold,
               color: AppColors.textPrimary,
             ),
           ),
-          SizedBox(height: 16.h),
+          const SizedBox(height: 16),
           _buildSettingTile(
             icon: Icons.person_outline,
             title: 'Edit Profile',
@@ -314,7 +313,7 @@ class ProfilePage extends StatelessWidget {
             subtitle: 'App version 1.0.0',
             onTap: () {},
           ),
-          SizedBox(height: 8.h),
+          const SizedBox(height: 8),
           _buildLogoutButton(),
         ],
       ),
@@ -328,10 +327,10 @@ class ProfilePage extends StatelessWidget {
     required VoidCallback onTap,
   }) {
     return Container(
-      margin: EdgeInsets.only(bottom: 12.h),
+      margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(16.r),
+        borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.05),
@@ -342,19 +341,19 @@ class ProfilePage extends StatelessWidget {
       ),
       child: ListTile(
         onTap: onTap,
-        contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+        contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         leading: Container(
-          padding: EdgeInsets.all(10.w),
+          padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
             gradient: AppColors.primaryGradient,
-            borderRadius: BorderRadius.circular(12.r),
+            borderRadius: BorderRadius.circular(12),
           ),
-          child: Icon(icon, color: Colors.white, size: 22.sp),
+          child: Icon(icon, color: Colors.white, size: 22),
         ),
         title: Text(
           title,
           style: TextStyle(
-            fontSize: 15.sp,
+            fontSize: 15,
             fontWeight: FontWeight.w600,
             color: AppColors.textPrimary,
           ),
@@ -362,14 +361,14 @@ class ProfilePage extends StatelessWidget {
         subtitle: Text(
           subtitle,
           style: TextStyle(
-            fontSize: 12.sp,
+            fontSize: 12,
             color: AppColors.textSecondary,
           ),
         ),
         trailing: Icon(
           Icons.chevron_right,
           color: AppColors.textLight,
-          size: 24.sp,
+          size: 24,
         ),
       ),
     );
@@ -380,7 +379,7 @@ class ProfilePage extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(16.r),
+        borderRadius: BorderRadius.circular(16),
         border: Border.all(color: AppColors.error.withOpacity(0.3), width: 1.5),
       ),
       child: ListTile(
@@ -388,12 +387,12 @@ class ProfilePage extends StatelessWidget {
           Get.defaultDialog(
             title: 'Logout',
             titleStyle: TextStyle(
-              fontSize: 18.sp,
+              fontSize: 18,
               fontWeight: FontWeight.bold,
             ),
             middleText: 'Are you sure you want to logout?',
             middleTextStyle: TextStyle(
-              fontSize: 14.sp,
+              fontSize: 14,
               color: AppColors.textSecondary,
             ),
             textCancel: 'Cancel',
@@ -405,22 +404,22 @@ class ProfilePage extends StatelessWidget {
               Get.back();
               // Perform logout
             },
-            radius: 16.r,
+            radius: 16,
           );
         },
-        contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
+        contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
         leading: Container(
-          padding: EdgeInsets.all(10.w),
+          padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
             color: AppColors.error.withOpacity(0.1),
-            borderRadius: BorderRadius.circular(12.r),
+            borderRadius: BorderRadius.circular(12),
           ),
-          child: Icon(Icons.logout, color: AppColors.error, size: 22.sp),
+          child: Icon(Icons.logout, color: AppColors.error, size: 22),
         ),
         title: Text(
           'Logout',
           style: TextStyle(
-            fontSize: 15.sp,
+            fontSize: 15,
             fontWeight: FontWeight.w600,
             color: AppColors.error,
           ),

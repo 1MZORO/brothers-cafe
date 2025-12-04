@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/constants/app_colors.dart';
 
 class CategoryChip extends StatefulWidget {
@@ -56,12 +55,12 @@ class _CategoryChipState extends State<CategoryChip>
             child: AnimatedContainer(
               duration: const Duration(milliseconds: 300),
               curve: Curves.easeInOut,
-              margin: EdgeInsets.only(right: 12.w),
-              padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 12.h),
+              margin: const EdgeInsets.only(right: 12),
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
               decoration: BoxDecoration(
                 gradient: widget.isSelected ? AppColors.primaryGradient : null,
                 color: widget.isSelected ? null : AppColors.white,
-                borderRadius: BorderRadius.circular(25.r),
+                borderRadius: BorderRadius.circular(25),
                 boxShadow: [
                   BoxShadow(
                     color: widget.isSelected
@@ -77,7 +76,7 @@ class _CategoryChipState extends State<CategoryChip>
                 widget.title,
                 style: TextStyle(
                   color: widget.isSelected ? Colors.white : AppColors.textPrimary,
-                  fontSize: 14.sp,
+                  fontSize: 14,
                   fontWeight: widget.isSelected ? FontWeight.w600 : FontWeight.w500,
                 ),
               ),

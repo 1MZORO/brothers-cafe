@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../menu/data/models/menu_item.dart';
 import '../widgets/search_bar_widget.dart';
@@ -82,13 +81,13 @@ class _HomeScreenState extends State<HomeScreen>
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           _buildSearchSection(),
-                          SizedBox(height: 24.h),
+                          const SizedBox(height: 24),
                           const BannerWidget(),
-                          SizedBox(height: 24.h),
+                          const SizedBox(height: 24),
                           _buildCategoriesSection(),
-                          SizedBox(height: 24.h),
+                          const SizedBox(height: 24),
                           _buildFoodSection(),
-                          SizedBox(height: 100.h),
+                          const SizedBox(height: 100),
                         ],
                       ),
                     ),
@@ -104,7 +103,7 @@ class _HomeScreenState extends State<HomeScreen>
 
   Widget _buildHeader() {
     return Padding(
-      padding: EdgeInsets.all(20.w),
+      padding: const EdgeInsets.all(20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -114,16 +113,16 @@ class _HomeScreenState extends State<HomeScreen>
               Text(
                 'Good Morning ☀️',
                 style: TextStyle(
-                  fontSize: 14.sp,
+                  fontSize: 14,
                   color: AppColors.textSecondary,
                   fontWeight: FontWeight.w400,
                 ),
               ),
-              SizedBox(height: 4.h),
+              const SizedBox(height: 4),
               Text(
                 'What would you like?',
                 style: TextStyle(
-                  fontSize: 20.sp,
+                  fontSize: 20,
                   fontWeight: FontWeight.bold,
                   color: AppColors.textPrimary,
                 ),
@@ -131,10 +130,10 @@ class _HomeScreenState extends State<HomeScreen>
             ],
           ),
           Container(
-            padding: EdgeInsets.all(12.w),
+            padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
               color: AppColors.white,
-              borderRadius: BorderRadius.circular(16.r),
+              borderRadius: BorderRadius.circular(16),
               boxShadow: [
                 BoxShadow(
                   color: AppColors.primary.withOpacity(0.1),
@@ -149,14 +148,14 @@ class _HomeScreenState extends State<HomeScreen>
                 Icon(
                   Icons.notifications_outlined,
                   color: AppColors.primary,
-                  size: 24.sp,
+                  size: 24,
                 ),
                 Positioned(
                   right: 0,
                   top: 0,
                   child: Container(
-                    width: 8.w,
-                    height: 8.h,
+                    width: 8,
+                    height: 8,
                     decoration: const BoxDecoration(
                       color: AppColors.error,
                       shape: BoxShape.circle,
@@ -173,7 +172,7 @@ class _HomeScreenState extends State<HomeScreen>
 
   Widget _buildSearchSection() {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20.w),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: const SearchBarWidget(),
     );
   }
@@ -183,22 +182,22 @@ class _HomeScreenState extends State<HomeScreen>
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20.w),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Text(
             'Categories',
             style: TextStyle(
-              fontSize: 18.sp,
+              fontSize: 18,
               fontWeight: FontWeight.w600,
               color: AppColors.textPrimary,
             ),
           ),
         ),
-        SizedBox(height: 16.h),
+        const SizedBox(height: 16),
         SizedBox(
-          height: 40.h,
+          height: 40,
           child: ListView(
             scrollDirection: Axis.horizontal,
-            padding: EdgeInsets.symmetric(horizontal: 20.w),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             children: [
               CategoryChip(title: 'All', isSelected: true),
               CategoryChip(title: 'Coffee'),
@@ -249,14 +248,14 @@ class _HomeScreenState extends State<HomeScreen>
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20.w),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 'Popular Food',
                 style: TextStyle(
-                  fontSize: 18.sp,
+                  fontSize: 18,
                   fontWeight: FontWeight.w600,
                   color: AppColors.textPrimary,
                 ),
@@ -264,7 +263,7 @@ class _HomeScreenState extends State<HomeScreen>
               Text(
                 'See All',
                 style: TextStyle(
-                  fontSize: 14.sp,
+                  fontSize: 14,
                   color: AppColors.primary,
                   fontWeight: FontWeight.w500,
                 ),
@@ -272,12 +271,12 @@ class _HomeScreenState extends State<HomeScreen>
             ],
           ),
         ),
-        SizedBox(height: 16.h),
+        const SizedBox(height: 16),
         SizedBox(
-          height: 280.h,
+          height: 280,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            padding: EdgeInsets.symmetric(horizontal: 20.w),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             itemCount: sampleItems.length,
             itemBuilder: (context, index) {
               final item = sampleItems[index];

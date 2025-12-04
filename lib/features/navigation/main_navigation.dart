@@ -1,6 +1,5 @@
 import 'package:brew_brother_cafe/features/home/presentation/screens/home_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../core/constants/app_colors.dart';
 import '../../core/widgets/animated_fab.dart';
 import '../search/search_page.dart';
@@ -58,8 +57,8 @@ class _MainNavigationState extends State<MainNavigation>
           _pages[_selectedIndex],
           // Floating Action Button
           Positioned(
-            bottom: 110.h,
-            right: 20.w,
+            bottom: 110,
+            right: 20,
             child: ScaleTransition(
               scale: _fabAnimation,
               child: SpeedDialFAB(

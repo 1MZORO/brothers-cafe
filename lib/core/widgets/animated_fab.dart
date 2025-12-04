@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../constants/app_colors.dart';
 
 class AnimatedFAB extends StatefulWidget {
@@ -76,8 +75,8 @@ class _AnimatedFABState extends State<AnimatedFAB>
             child: Transform.rotate(
               angle: _rotationAnimation.value * 2 * 3.14159,
               child: Container(
-                width: 60.w,
-                height: 60.h,
+                width: 60,
+                height: 60,
                 decoration: BoxDecoration(
                   gradient: AppColors.primaryGradient,
                   shape: BoxShape.circle,
@@ -93,7 +92,7 @@ class _AnimatedFABState extends State<AnimatedFAB>
                 child: Icon(
                   widget.icon,
                   color: Colors.white,
-                  size: 28.sp,
+                  size: 28,
                 ),
               ),
             ),
@@ -184,7 +183,7 @@ class _SpeedDialFABState extends State<SpeedDialFAB>
               return Transform.translate(
                 offset: Offset(
                   0,
-                  -((index + 1) * 70.h * _expandAnimation.value),
+                  -((index + 1) * 70 * _expandAnimation.value),
                 ),
                 child: Opacity(
                   opacity: _expandAnimation.value,
@@ -194,31 +193,31 @@ class _SpeedDialFABState extends State<SpeedDialFAB>
                       if (child.label != null)
                         Container(
                           padding: EdgeInsets.symmetric(
-                            horizontal: 12.w,
-                            vertical: 8.h,
+                            horizontal: 12,
+                            vertical: 8,
                           ),
                           decoration: BoxDecoration(
                             color: Colors.black87,
-                            borderRadius: BorderRadius.circular(8.r),
+                            borderRadius: BorderRadius.circular(8),
                           ),
                           child: Text(
                             child.label!,
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 12.sp,
+                              fontSize: 12,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
                         ),
-                      SizedBox(width: 12.w),
+                      const SizedBox(width: 12),
                       GestureDetector(
                         onTap: () {
                           child.onTap?.call();
                           _toggle();
                         },
                         child: Container(
-                          width: 50.w,
-                          height: 50.h,
+                          width: 50,
+                          height: 50,
                           decoration: BoxDecoration(
                             color: child.backgroundColor ?? AppColors.secondary,
                             shape: BoxShape.circle,
@@ -233,7 +232,7 @@ class _SpeedDialFABState extends State<SpeedDialFAB>
                           child: Icon(
                             child.icon,
                             color: child.iconColor ?? Colors.white,
-                            size: 24.sp,
+                            size: 24,
                           ),
                         ),
                       ),
@@ -253,8 +252,8 @@ class _SpeedDialFABState extends State<SpeedDialFAB>
               child: GestureDetector(
                 onTap: _toggle,
                 child: Container(
-                  width: 60.w,
-                  height: 60.h,
+                  width: 60,
+                  height: 60,
                   decoration: BoxDecoration(
                     gradient: AppColors.primaryGradient,
                     shape: BoxShape.circle,
@@ -271,7 +270,7 @@ class _SpeedDialFABState extends State<SpeedDialFAB>
                         ? (widget.activeIcon ?? Icons.close)
                         : widget.icon,
                     color: Colors.white,
-                    size: 28.sp,
+                    size: 28,
                   ),
                 ),
               ),

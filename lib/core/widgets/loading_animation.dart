@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../constants/app_colors.dart';
 
 class LoadingAnimation extends StatefulWidget {
@@ -42,8 +41,8 @@ class _LoadingAnimationState extends State<LoadingAnimation>
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: widget.size.w,
-      height: widget.size.h,
+      width: widget.size,
+      height: widget.size,
       child: AnimatedBuilder(
         animation: _animation,
         builder: (context, child) {
@@ -56,8 +55,8 @@ class _LoadingAnimationState extends State<LoadingAnimation>
                     child: Align(
                       alignment: Alignment.topCenter,
                       child: Container(
-                        width: 8.w,
-                        height: 8.h,
+                        width: 8,
+                        height: 8,
                         decoration: BoxDecoration(
                           color: (widget.color ?? AppColors.primary)
                               .withOpacity(0.8 - (i * 0.2)),
@@ -118,8 +117,8 @@ class _PulseLoadingAnimationState extends State<PulseLoadingAnimation>
       animation: _animation,
       builder: (context, child) {
         return Container(
-          width: widget.size.w,
-          height: widget.size.h,
+          width: widget.size,
+          height: widget.size,
           decoration: BoxDecoration(
             gradient: RadialGradient(
               colors: [
@@ -131,8 +130,8 @@ class _PulseLoadingAnimationState extends State<PulseLoadingAnimation>
           ),
           child: Center(
             child: Container(
-              width: (widget.size * 0.4).w,
-              height: (widget.size * 0.4).h,
+              width: widget.size * 0.4,
+              height: widget.size * 0.4,
               decoration: BoxDecoration(
                 color: widget.color ?? AppColors.primary,
                 shape: BoxShape.circle,

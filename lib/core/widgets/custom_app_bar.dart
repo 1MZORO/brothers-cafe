@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../constants/app_colors.dart';
 
 class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
@@ -26,7 +25,7 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   State<CustomAppBar> createState() => _CustomAppBarState();
 
   @override
-  Size get preferredSize => Size.fromHeight(60.h);
+  Size get preferredSize => Size.fromHeight(60);
 }
 
 class _CustomAppBarState extends State<CustomAppBar>
@@ -79,7 +78,7 @@ class _CustomAppBarState extends State<CustomAppBar>
           child: SlideTransition(
             position: _slideAnimation,
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.w),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
                 children: [
                   // Leading widget or back button
@@ -89,11 +88,11 @@ class _CustomAppBarState extends State<CustomAppBar>
                     GestureDetector(
                       onTap: widget.onBackPressed ?? () => Navigator.pop(context),
                       child: Container(
-                        width: 40.w,
-                        height: 40.h,
+                        width: 40,
+                        height: 40,
                         decoration: BoxDecoration(
                           color: AppColors.white,
-                          borderRadius: BorderRadius.circular(12.r),
+                          borderRadius: BorderRadius.circular(12),
                           boxShadow: [
                             BoxShadow(
                               color: Colors.black.withOpacity(0.1),
@@ -105,7 +104,7 @@ class _CustomAppBarState extends State<CustomAppBar>
                         child: Icon(
                           Icons.arrow_back_ios_new,
                           color: AppColors.textPrimary,
-                          size: 18.sp,
+                          size: 18,
                         ),
                       ),
                     ),
@@ -116,7 +115,7 @@ class _CustomAppBarState extends State<CustomAppBar>
                       widget.title,
                       textAlign: widget.centerTitle ? TextAlign.center : TextAlign.start,
                       style: TextStyle(
-                        fontSize: 20.sp,
+                        fontSize: 20,
                         fontWeight: FontWeight.w700,
                         color: AppColors.textPrimary,
                       ),
@@ -157,7 +156,7 @@ class GlassmorphicAppBar extends StatefulWidget implements PreferredSizeWidget {
   State<GlassmorphicAppBar> createState() => _GlassmorphicAppBarState();
 
   @override
-  Size get preferredSize => Size.fromHeight(60.h);
+  Size get preferredSize => Size.fromHeight(60);
 }
 
 class _GlassmorphicAppBarState extends State<GlassmorphicAppBar>
@@ -202,7 +201,7 @@ class _GlassmorphicAppBarState extends State<GlassmorphicAppBar>
           ),
           child: SafeArea(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.w),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
                 children: [
                   if (widget.leading != null)
@@ -211,11 +210,11 @@ class _GlassmorphicAppBarState extends State<GlassmorphicAppBar>
                     GestureDetector(
                       onTap: () => Navigator.pop(context),
                       child: Container(
-                        width: 40.w,
-                        height: 40.h,
+                        width: 40,
+                        height: 40,
                         decoration: BoxDecoration(
                           color: Colors.white.withOpacity(0.3),
-                          borderRadius: BorderRadius.circular(12.r),
+                          borderRadius: BorderRadius.circular(12),
                           border: Border.all(
                             color: Colors.white.withOpacity(0.2),
                             width: 1,
@@ -224,7 +223,7 @@ class _GlassmorphicAppBarState extends State<GlassmorphicAppBar>
                         child: Icon(
                           Icons.arrow_back_ios_new,
                           color: AppColors.textPrimary,
-                          size: 18.sp,
+                          size: 18,
                         ),
                       ),
                     ),
@@ -234,7 +233,7 @@ class _GlassmorphicAppBarState extends State<GlassmorphicAppBar>
                       widget.title,
                       textAlign: widget.centerTitle ? TextAlign.center : TextAlign.start,
                       style: TextStyle(
-                        fontSize: 20.sp,
+                        fontSize: 20,
                         fontWeight: FontWeight.w700,
                         color: AppColors.textPrimary,
                       ),

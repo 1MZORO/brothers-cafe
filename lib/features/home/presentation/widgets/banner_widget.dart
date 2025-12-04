@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/constants/app_colors.dart';
 
 class BannerWidget extends StatefulWidget {
@@ -87,7 +86,7 @@ class _BannerWidgetState extends State<BannerWidget>
     return Column(
       children: [
         SizedBox(
-          height: 180.h,
+          height: 180,
           child: PageView.builder(
             controller: _pageController,
             onPageChanged: (index) {
@@ -99,12 +98,12 @@ class _BannerWidgetState extends State<BannerWidget>
             itemBuilder: (context, index) {
               final banner = _banners[index];
               return Container(
-                margin: EdgeInsets.symmetric(horizontal: 20.w),
+                margin: const EdgeInsets.symmetric(horizontal: 20),
                 child: Stack(
                   clipBehavior: Clip.none,
                   children: [
                     Container(
-                      height: 160.h,
+                      height: 160,
                       width: double.infinity,
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
@@ -112,7 +111,7 @@ class _BannerWidgetState extends State<BannerWidget>
                           end: Alignment.bottomRight,
                           colors: banner.colors,
                         ),
-                        borderRadius: BorderRadius.circular(24.r),
+                        borderRadius: BorderRadius.circular(24),
                         boxShadow: [
                           BoxShadow(
                             color: banner.colors[0].withValues(alpha: 0.4),
@@ -126,11 +125,11 @@ class _BannerWidgetState extends State<BannerWidget>
                         children: [
                           // Decorative circles
                           Positioned(
-                            right: -20.w,
-                            top: -20.h,
+                            right: -20,
+                            top: -20,
                             child: Container(
-                              width: 80.w,
-                              height: 80.h,
+                              width: 80,
+                              height: 80,
                               decoration: BoxDecoration(
                                 color: Colors.white.withValues(alpha: 0.1),
                                 shape: BoxShape.circle,
@@ -138,11 +137,11 @@ class _BannerWidgetState extends State<BannerWidget>
                             ),
                           ),
                           Positioned(
-                            right: 40.w,
-                            bottom: -10.h,
+                            right: 40,
+                            bottom: -10,
                             child: Container(
-                              width: 40.w,
-                              height: 40.h,
+                              width: 40,
+                              height: 40,
                               decoration: BoxDecoration(
                                 color: Colors.white.withValues(alpha: 0.15),
                                 shape: BoxShape.circle,
@@ -151,7 +150,7 @@ class _BannerWidgetState extends State<BannerWidget>
                           ),
                           // Content
                           Padding(
-                            padding: EdgeInsets.only(left: 24.w, top: 24.h),
+                            padding: const EdgeInsets.only(left: 24, top: 24),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -159,16 +158,16 @@ class _BannerWidgetState extends State<BannerWidget>
                                   banner.title,
                                   style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: 16.sp,
+                                    fontSize: 16,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
-                                SizedBox(height: 8.h),
+                                const SizedBox(height: 8),
                                 Text(
                                   banner.discount,
                                   style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: 36.sp,
+                                    fontSize: 36,
                                     fontWeight: FontWeight.w900,
                                     shadows: [
                                       Shadow(
@@ -179,30 +178,30 @@ class _BannerWidgetState extends State<BannerWidget>
                                     ],
                                   ),
                                 ),
-                                SizedBox(height: 4.h),
+                                const SizedBox(height: 4),
                                 Text(
                                   banner.subtitle,
                                   style: TextStyle(
                                     color: Colors.white.withValues(alpha: 0.9),
-                                    fontSize: 14.sp,
+                                    fontSize: 14,
                                     fontWeight: FontWeight.w500,
                                   ),
                                 ),
-                                // SizedBox(height: 16.h),
+                                // const SizedBox(height: 16),
                                 // Container(
                                 //   padding: EdgeInsets.symmetric(
-                                //     horizontal: 16.w,
-                                //     vertical: 8.h,
+                                //     horizontal: 16,
+                                //     vertical: 8,
                                 //   ),
                                 //   decoration: BoxDecoration(
                                 //     color: Colors.white.withValues(alpha: 0.2),
-                                //     borderRadius: BorderRadius.circular(20.r),
+                                //     borderRadius: BorderRadius.circular(20),
                                 //   ),
                                 //   child: Text(
                                 //     'Order Now',
                                 //     style: TextStyle(
                                 //       color: Colors.white,
-                                //       fontSize: 12.sp,
+                                //       fontSize: 12,
                                 //       fontWeight: FontWeight.w600,
                                 //     ),
                                 //   ),
@@ -215,16 +214,16 @@ class _BannerWidgetState extends State<BannerWidget>
                     ),
                     // Floating image
                     Positioned(
-                      right: -10.w,
-                      top: -20.h,
+                      right: -10,
+                      top: -20,
                       child: AnimatedBuilder(
                         animation: _floatingAnimation,
                         builder: (context, child) {
                           return Transform.translate(
                             offset: Offset(0, _floatingAnimation.value),
                             child: SizedBox(
-                              width: 160.w,
-                              height: 160.h,
+                              width: 160,
+                              height: 160,
                               child: ClipOval(
                                 child: Image.asset(
                                   banner.image,
@@ -242,7 +241,7 @@ class _BannerWidgetState extends State<BannerWidget>
             },
           ),
         ),
-        SizedBox(height: 16.h),
+        const SizedBox(height: 16),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: List.generate(
@@ -250,13 +249,13 @@ class _BannerWidgetState extends State<BannerWidget>
             (index) => AnimatedContainer(
               duration: const Duration(milliseconds: 400),
               curve: Curves.easeInOut,
-              margin: EdgeInsets.symmetric(horizontal: 4.w),
-              width: _currentPage == index ? 28.w : 8.w,
-              height: 8.h,
+              margin: const EdgeInsets.symmetric(horizontal: 4),
+              width: _currentPage == index ? 28 : 8,
+              height: 8,
               decoration: BoxDecoration(
                 gradient: _currentPage == index ? AppColors.primaryGradient : null,
                 color: _currentPage == index ? null : AppColors.divider,
-                borderRadius: BorderRadius.circular(4.r),
+                borderRadius: BorderRadius.circular(4),
               ),
             ),
           ),

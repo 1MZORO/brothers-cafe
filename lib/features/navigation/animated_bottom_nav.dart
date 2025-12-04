@@ -1,6 +1,5 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../core/constants/app_colors.dart';
 
 class AnimatedBottomNav extends StatefulWidget {
@@ -71,16 +70,16 @@ class _AnimatedBottomNavState extends State<AnimatedBottomNav>
   Widget build(BuildContext context) {
     return SafeArea(
       child: Container(
-        height: 65.h,
-        margin: EdgeInsets.all(16.w),
+        height: 65,
+        margin: const EdgeInsets.all(16),
         child: ClipRRect(
-          borderRadius: BorderRadius.circular(20.r),
+          borderRadius: BorderRadius.circular(20),
           child: BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
             child: Container(
               decoration: BoxDecoration(
                 color: Colors.white.withValues(alpha: 0.2),
-                borderRadius: BorderRadius.circular(20.r),
+                borderRadius: BorderRadius.circular(20),
                 border: Border.all(
                   color: Colors.white.withValues(alpha: 0.3),
                   width: 1.5,
@@ -108,12 +107,12 @@ class _AnimatedBottomNavState extends State<AnimatedBottomNav>
                             duration: const Duration(milliseconds: 300),
                             curve: Curves.easeInOut,
                             padding: EdgeInsets.symmetric(
-                              horizontal: isSelected ? 12.w : 8.w,
-                              vertical: 6.h,
+                              horizontal: isSelected ? 12 : 8,
+                              vertical: 6,
                             ),
                             decoration: BoxDecoration(
                               gradient: isSelected ? AppColors.primaryGradient : null,
-                              borderRadius: BorderRadius.circular(16.r),
+                              borderRadius: BorderRadius.circular(16),
                               boxShadow: isSelected ? [
                                 BoxShadow(
                                   color: AppColors.primary.withValues(alpha: 0.3),
@@ -127,15 +126,15 @@ class _AnimatedBottomNavState extends State<AnimatedBottomNav>
                               children: [
                                 Icon(
                                   _navItems[index].icon,
-                                  size: 20.sp,
+                                  size: 20,
                                   color: isSelected ? Colors.white : AppColors.textPrimary,
                                 ),
                                 if (isSelected) ...[
-                                  SizedBox(height: 2.h),
+                                  const SizedBox(height: 2),
                                   Text(
                                     _navItems[index].label,
                                     style: TextStyle(
-                                      fontSize: 9.sp,
+                                      fontSize: 9,
                                       fontWeight: FontWeight.w600,
                                       color: Colors.white,
                                     ),

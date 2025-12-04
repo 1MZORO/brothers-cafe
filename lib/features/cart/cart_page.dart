@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../core/constants/app_colors.dart';
 
 class CartPage extends StatelessWidget {
@@ -21,19 +20,19 @@ class CartPage extends StatelessWidget {
       ),
       child: SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(20.w),
+          padding: const EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 'My Cart',
                 style: TextStyle(
-                  fontSize: 24.sp,
+                  fontSize: 24,
                   fontWeight: FontWeight.bold,
                   color: AppColors.textPrimary,
                 ),
               ),
-              SizedBox(height: 20.h),
+              const SizedBox(height: 20),
               Expanded(
                 child: Center(
                   child: Column(
@@ -41,14 +40,14 @@ class CartPage extends StatelessWidget {
                     children: [
                       Icon(
                         Icons.shopping_cart_outlined,
-                        size: 80.sp,
+                        size: 80,
                         color: AppColors.textLight,
                       ),
-                      SizedBox(height: 16.h),
+                      const SizedBox(height: 16),
                       Text(
                         'Your cart is empty',
                         style: TextStyle(
-                          fontSize: 18.sp,
+                          fontSize: 18,
                           color: AppColors.textSecondary,
                         ),
                       ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../constants/app_colors.dart';
 
 class EmptyStateWidget extends StatelessWidget {
@@ -22,12 +21,12 @@ class EmptyStateWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Padding(
-        padding: EdgeInsets.all(40.w),
+        padding: const EdgeInsets.all(40),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              padding: EdgeInsets.all(32.w),
+              padding: const EdgeInsets.all(32),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 gradient: LinearGradient(
@@ -41,48 +40,48 @@ class EmptyStateWidget extends StatelessWidget {
               ),
               child: Icon(
                 icon,
-                size: 80.sp,
+                size: 80,
                 color: AppColors.textLight,
               ),
             ),
-            SizedBox(height: 24.h),
+            const SizedBox(height: 24),
             Text(
               title,
               style: TextStyle(
-                fontSize: 20.sp,
+                fontSize: 20,
                 fontWeight: FontWeight.w600,
                 color: AppColors.textPrimary,
               ),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 12.h),
+            const SizedBox(height: 12),
             Text(
               subtitle,
               style: TextStyle(
-                fontSize: 14.sp,
+                fontSize: 14,
                 color: AppColors.textSecondary,
               ),
               textAlign: TextAlign.center,
             ),
             if (onActionPressed != null && actionText != null) ...[
-              SizedBox(height: 32.h),
+              const SizedBox(height: 32),
               ElevatedButton(
                 onPressed: onActionPressed,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.primary,
                   foregroundColor: Colors.white,
                   padding: EdgeInsets.symmetric(
-                    horizontal: 32.w,
-                    vertical: 16.h,
+                    horizontal: 32,
+                    vertical: 16,
                   ),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12.r),
+                    borderRadius: BorderRadius.circular(12),
                   ),
                 ),
                 child: Text(
                   actionText!,
                   style: TextStyle(
-                    fontSize: 14.sp,
+                    fontSize: 14,
                     fontWeight: FontWeight.w600,
                   ),
                 ),

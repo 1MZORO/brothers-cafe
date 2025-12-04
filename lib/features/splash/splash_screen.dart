@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import '../../core/constants/app_colors.dart';
 import '../../core/widgets/loading_animation.dart';
@@ -98,11 +97,11 @@ class _SplashScreenState extends State<SplashScreen>
               children: [
                 // Background decorative elements
                 Positioned(
-                  top: -50.h,
-                  right: -50.w,
+                  top: -50,
+                  right: -50,
                   child: Container(
-                    width: 200.w,
-                    height: 200.h,
+                    width: 200,
+                    height: 200,
                     decoration: BoxDecoration(
                       color: Colors.white.withValues(alpha: 0.1),
                       shape: BoxShape.circle,
@@ -110,11 +109,11 @@ class _SplashScreenState extends State<SplashScreen>
                   ),
                 ),
                 Positioned(
-                  bottom: -100.h,
-                  left: -100.w,
+                  bottom: -100,
+                  left: -100,
                   child: Container(
-                    width: 300.w,
-                    height: 300.h,
+                    width: 300,
+                    height: 300,
                     decoration: BoxDecoration(
                       color: Colors.white.withValues(alpha: 0.05),
                       shape: BoxShape.circle,
@@ -130,11 +129,11 @@ class _SplashScreenState extends State<SplashScreen>
                       ScaleTransition(
                         scale: _logoAnimation,
                         child: Container(
-                          width: 140.w,
-                          height: 140.h,
+                          width: 140,
+                          height: 140,
                           decoration: BoxDecoration(
                             color: Colors.white,
-                            borderRadius: BorderRadius.circular(28.r),
+                            borderRadius: BorderRadius.circular(28),
                             boxShadow: [
                               BoxShadow(
                                 color: Colors.black.withValues(alpha: 0.2),
@@ -148,15 +147,15 @@ class _SplashScreenState extends State<SplashScreen>
                             children: [
                               Icon(
                                 Icons.local_cafe_rounded,
-                                size: 70.sp,
+                                size: 70,
                                 color: AppColors.primary,
                               ),
                               Positioned(
-                                top: 20.h,
-                                right: 20.w,
+                                top: 20,
+                                right: 20,
                                 child: Container(
-                                  width: 20.w,
-                                  height: 20.h,
+                                  width: 20,
+                                  height: 20,
                                   decoration: BoxDecoration(
                                     color: AppColors.accent,
                                     shape: BoxShape.circle,
@@ -167,7 +166,7 @@ class _SplashScreenState extends State<SplashScreen>
                           ),
                         ),
                       ),
-                      SizedBox(height: 32.h),
+                      const SizedBox(height: 32),
                       // Text animations
                       FadeTransition(
                         opacity: _textAnimation,
@@ -181,7 +180,7 @@ class _SplashScreenState extends State<SplashScreen>
                               Text(
                                 'Brew Brother',
                                 style: TextStyle(
-                                  fontSize: 32.sp,
+                                  fontSize: 32,
                                   fontWeight: FontWeight.w900,
                                   color: Colors.white,
                                   shadows: [
@@ -193,11 +192,11 @@ class _SplashScreenState extends State<SplashScreen>
                                   ],
                                 ),
                               ),
-                              SizedBox(height: 8.h),
+                              const SizedBox(height: 8),
                               Text(
                                 'Premium Coffee Experience',
                                 style: TextStyle(
-                                  fontSize: 16.sp,
+                                  fontSize: 16,
                                   color: Colors.white.withValues(alpha: 0.9),
                                   fontWeight: FontWeight.w500,
                                   letterSpacing: 1.2,
@@ -207,7 +206,7 @@ class _SplashScreenState extends State<SplashScreen>
                           ),
                         ),
                       ),
-                      SizedBox(height: 60.h),
+                      const SizedBox(height: 60),
                       // Loading animation
                       FadeTransition(
                         opacity: _textAnimation,

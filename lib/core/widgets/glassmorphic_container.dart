@@ -1,6 +1,5 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../constants/app_colors.dart';
 
 class GlassmorphicContainer extends StatelessWidget {
@@ -34,10 +33,10 @@ class GlassmorphicContainer extends StatelessWidget {
       height: height,
       margin: margin,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(borderRadius.r),
+        borderRadius: BorderRadius.circular(borderRadius),
       ),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(borderRadius.r),
+        borderRadius: BorderRadius.circular(borderRadius),
         child: BackdropFilter(
           filter: ImageFilter.blur(
             sigmaX: blurIntensity,
@@ -47,7 +46,7 @@ class GlassmorphicContainer extends StatelessWidget {
             padding: padding,
             decoration: BoxDecoration(
               color: backgroundColor ?? AppColors.glassLight,
-              borderRadius: BorderRadius.circular(borderRadius.r),
+              borderRadius: BorderRadius.circular(borderRadius),
               border: border ??
                   Border.all(
                     color: Colors.white.withOpacity(0.2),

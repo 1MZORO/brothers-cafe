@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/constants/app_colors.dart';
 
 class CategoryCard extends StatelessWidget {
@@ -15,11 +14,11 @@ class CategoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 80.w,
-      margin: EdgeInsets.only(right: 12.w),
+      width: 80,
+      margin: const EdgeInsets.only(right: 12),
       decoration: BoxDecoration(
         color: AppColors.surface,
-        borderRadius: BorderRadius.circular(12.r),
+        borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withValues(alpha: 0.1),
@@ -33,14 +32,14 @@ class CategoryCard extends StatelessWidget {
         children: [
           Icon(
             icon,
-            size: 32.sp,
+            size: 32,
             color: AppColors.primary,
           ),
-          SizedBox(height: 8.h),
+          const SizedBox(height: 8),
           Text(
             title,
             style: TextStyle(
-              fontSize: 12.sp,
+              fontSize: 12,
               fontWeight: FontWeight.w500,
               color: AppColors.textPrimary,
             ),

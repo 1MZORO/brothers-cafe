@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../constants/app_colors.dart';
 
 class BadgeWidget extends StatelessWidget {
@@ -24,16 +23,16 @@ class BadgeWidget extends StatelessWidget {
         child,
         if (count > 0)
           Positioned(
-            right: -6.w,
-            top: -6.h,
+            right: -6,
+            top: -6,
             child: AnimatedScale(
               scale: count > 0 ? 1.0 : 0.0,
               duration: const Duration(milliseconds: 200),
               curve: Curves.easeOutBack,
               child: Container(
                 padding: EdgeInsets.symmetric(
-                  horizontal: count > 9 ? 6.w : 8.w,
-                  vertical: 4.h,
+                  horizontal: count > 9 ? 6 : 8,
+                  vertical: 4,
                 ),
                 decoration: BoxDecoration(
                   color: badgeColor ?? AppColors.primary,
@@ -47,15 +46,15 @@ class BadgeWidget extends StatelessWidget {
                   ],
                 ),
                 constraints: BoxConstraints(
-                  minWidth: 18.w,
-                  minHeight: 18.w,
+                  minWidth: 18,
+                  minHeight: 18,
                 ),
                 child: Center(
                   child: Text(
                     count > 99 ? '99+' : count.toString(),
                     style: TextStyle(
                       color: textColor ?? Colors.white,
-                      fontSize: 10.sp,
+                      fontSize: 10,
                       fontWeight: FontWeight.bold,
                     ),
                     textAlign: TextAlign.center,
