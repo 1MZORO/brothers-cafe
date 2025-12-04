@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../constants/app_colors.dart';
 
 class ShimmerLoading extends StatefulWidget {
@@ -82,11 +81,11 @@ class ShimmerFoodCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 190.w,
-      margin: EdgeInsets.only(right: 16.w),
+      width: 190,
+      margin: const EdgeInsets.only(right: 16),
       decoration: BoxDecoration(
         color: AppColors.white,
-        borderRadius: BorderRadius.circular(24.r),
+        borderRadius: BorderRadius.circular(24),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.08),
@@ -99,55 +98,55 @@ class ShimmerFoodCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            height: 150.h,
+            height: 150,
             width: double.infinity,
             decoration: BoxDecoration(
               color: AppColors.divider,
               borderRadius: BorderRadius.vertical(
-                top: Radius.circular(24.r),
+                top: Radius.circular(24),
               ),
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(16.w),
+            padding: const EdgeInsets.all(16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  height: 16.h,
-                  width: 120.w,
+                  height: 16,
+                  width: 120,
                   decoration: BoxDecoration(
                     color: AppColors.divider,
-                    borderRadius: BorderRadius.circular(8.r),
+                    borderRadius: BorderRadius.circular(8),
                   ),
                 ),
-                SizedBox(height: 8.h),
+                const SizedBox(height: 8),
                 Container(
-                  height: 12.h,
-                  width: 80.w,
+                  height: 12,
+                  width: 80,
                   decoration: BoxDecoration(
                     color: AppColors.divider,
-                    borderRadius: BorderRadius.circular(6.r),
+                    borderRadius: BorderRadius.circular(6),
                   ),
                 ),
-                SizedBox(height: 16.h),
+                const SizedBox(height: 16),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                      height: 18.h,
-                      width: 60.w,
+                      height: 18,
+                      width: 60,
                       decoration: BoxDecoration(
                         color: AppColors.divider,
-                        borderRadius: BorderRadius.circular(9.r),
+                        borderRadius: BorderRadius.circular(9),
                       ),
                     ),
                     Container(
-                      width: 36.w,
-                      height: 36.h,
+                      width: 36,
+                      height: 36,
                       decoration: BoxDecoration(
                         color: AppColors.divider,
-                        borderRadius: BorderRadius.circular(18.r),
+                        borderRadius: BorderRadius.circular(18),
                       ),
                     ),
                   ],
@@ -167,11 +166,11 @@ class ShimmerBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 160.h,
-      margin: EdgeInsets.symmetric(horizontal: 20.w),
+      height: 160,
+      margin: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
         color: AppColors.divider,
-        borderRadius: BorderRadius.circular(24.r),
+        borderRadius: BorderRadius.circular(24),
       ),
     );
   }

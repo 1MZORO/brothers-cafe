@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/constants/app_colors.dart';
 
 class SearchBarWidget extends StatefulWidget {
@@ -41,10 +40,10 @@ class _SearchBarWidgetState extends State<SearchBarWidget>
         return Transform.scale(
           scale: _scaleAnimation.value,
           child: Container(
-            height: 56.h,
+            height: 56,
             decoration: BoxDecoration(
               color: AppColors.white,
-              borderRadius: BorderRadius.circular(28.r),
+              borderRadius: BorderRadius.circular(28),
               boxShadow: [
                 BoxShadow(
                   color: _isFocused 
@@ -59,14 +58,14 @@ class _SearchBarWidgetState extends State<SearchBarWidget>
             child: Row(
               children: [
                 Padding(
-                  padding: EdgeInsets.only(left: 20.w),
+                  padding: const EdgeInsets.only(left: 20),
                   child: Icon(
                     Icons.search_rounded,
                     color: _isFocused ? AppColors.primary : AppColors.textSecondary,
-                    size: 24.sp,
+                    size: 24,
                   ),
                 ),
-                SizedBox(width: 12.w),
+                const SizedBox(width: 12),
                 Expanded(
                   child: TextField(
                     onTap: () {
@@ -81,30 +80,30 @@ class _SearchBarWidgetState extends State<SearchBarWidget>
                       hintText: 'Search for coffee, food...',
                       hintStyle: TextStyle(
                         color: AppColors.textSecondary,
-                        fontSize: 16.sp,
+                        fontSize: 16,
                         fontWeight: FontWeight.w400,
                       ),
                       border: InputBorder.none,
-                      contentPadding: EdgeInsets.symmetric(vertical: 16.h),
+                      contentPadding: const EdgeInsets.symmetric(vertical: 16),
                     ),
                     style: TextStyle(
                       color: AppColors.textPrimary,
-                      fontSize: 16.sp,
+                      fontSize: 16,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(right: 8.w),
-                  padding: EdgeInsets.all(12.w),
+                  margin: const EdgeInsets.only(right: 8),
+                  padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
                     gradient: AppColors.primaryGradient,
-                    borderRadius: BorderRadius.circular(20.r),
+                    borderRadius: BorderRadius.circular(20),
                   ),
                   child: Icon(
                     Icons.tune_rounded,
                     color: Colors.white,
-                    size: 20.sp,
+                    size: 20,
                   ),
                 ),
               ],

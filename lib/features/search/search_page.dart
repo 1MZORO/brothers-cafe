@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../core/constants/app_colors.dart';
 
 class SearchPage extends StatelessWidget {
@@ -21,24 +20,24 @@ class SearchPage extends StatelessWidget {
       ),
       child: SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(20.w),
+          padding: const EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 'Search',
                 style: TextStyle(
-                  fontSize: 24.sp,
+                  fontSize: 24,
                   fontWeight: FontWeight.bold,
                   color: AppColors.textPrimary,
                 ),
               ),
-              SizedBox(height: 20.h),
+              const SizedBox(height: 20),
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
+                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(12.r),
+                  borderRadius: BorderRadius.circular(12),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black.withValues(alpha: 0.1),
@@ -50,7 +49,7 @@ class SearchPage extends StatelessWidget {
                 child: Row(
                   children: [
                     Icon(Icons.search, color: AppColors.textLight),
-                    SizedBox(width: 12.w),
+                    const SizedBox(width: 12),
                     Expanded(
                       child: TextField(
                         decoration: InputDecoration(

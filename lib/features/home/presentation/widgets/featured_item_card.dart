@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/constants/app_colors.dart';
 
 class FeaturedItemCard extends StatelessWidget {
@@ -17,11 +16,11 @@ class FeaturedItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 12.h),
-      padding: EdgeInsets.all(16.w),
+      margin: const EdgeInsets.only(bottom: 12),
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: AppColors.surface,
-        borderRadius: BorderRadius.circular(12.r),
+        borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withValues(alpha: 0.1),
@@ -33,19 +32,19 @@ class FeaturedItemCard extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            width: 60.w,
-            height: 60.h,
+            width: 60,
+            height: 60,
             decoration: BoxDecoration(
               color: AppColors.accent,
-              borderRadius: BorderRadius.circular(8.r),
+              borderRadius: BorderRadius.circular(8),
             ),
             child: Icon(
               Icons.local_cafe,
               color: AppColors.primary,
-              size: 24.sp,
+              size: 24,
             ),
           ),
-          SizedBox(width: 16.w),
+          const SizedBox(width: 16),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,24 +52,24 @@ class FeaturedItemCard extends StatelessWidget {
                 Text(
                   name,
                   style: TextStyle(
-                    fontSize: 16.sp,
+                    fontSize: 16,
                     fontWeight: FontWeight.bold,
                     color: AppColors.textPrimary,
                   ),
                 ),
-                SizedBox(height: 4.h),
+                const SizedBox(height: 4),
                 Row(
                   children: [
                     Icon(
                       Icons.star,
-                      size: 16.sp,
+                      size: 16,
                       color: Colors.amber,
                     ),
-                    SizedBox(width: 4.w),
+                    const SizedBox(width: 4),
                     Text(
                       rating,
                       style: TextStyle(
-                        fontSize: 14.sp,
+                        fontSize: 14,
                         color: AppColors.textSecondary,
                       ),
                     ),
@@ -85,22 +84,22 @@ class FeaturedItemCard extends StatelessWidget {
               Text(
                 price,
                 style: TextStyle(
-                  fontSize: 16.sp,
+                  fontSize: 16,
                   fontWeight: FontWeight.bold,
                   color: AppColors.primary,
                 ),
               ),
-              SizedBox(height: 8.h),
+              const SizedBox(height: 8),
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 4.h),
+                padding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                 decoration: BoxDecoration(
                   color: AppColors.primary,
-                  borderRadius: BorderRadius.circular(16.r),
+                  borderRadius: BorderRadius.circular(16),
                 ),
                 child: Text(
                   'Add',
                   style: TextStyle(
-                    fontSize: 12.sp,
+                    fontSize: 12,
                     color: Colors.white,
                     fontWeight: FontWeight.w500,
                   ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../constants/app_colors.dart';
 
 class CustomButton extends StatefulWidget {
@@ -90,11 +89,11 @@ class _CustomButtonState extends State<CustomButton>
         scale: _scaleAnimation,
         child: Container(
           width: widget.width,
-          height: widget.height.h,
+          height: widget.height,
           decoration: BoxDecoration(
             gradient: widget.gradient ?? AppColors.primaryGradient,
             color: widget.gradient == null ? widget.backgroundColor : null,
-            borderRadius: BorderRadius.circular(widget.borderRadius.r),
+            borderRadius: BorderRadius.circular(widget.borderRadius),
             boxShadow: isEnabled
                 ? [
                     BoxShadow(
@@ -110,8 +109,8 @@ class _CustomButtonState extends State<CustomButton>
             child: Center(
               child: widget.isLoading
                   ? SizedBox(
-                      width: 24.w,
-                      height: 24.w,
+                      width: 24,
+                      height: 24,
                       child: const CircularProgressIndicator(
                         strokeWidth: 2.5,
                         valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
@@ -125,15 +124,15 @@ class _CustomButtonState extends State<CustomButton>
                           Icon(
                             widget.icon,
                             color: widget.textColor ?? Colors.white,
-                            size: 20.sp,
+                            size: 20,
                           ),
-                          SizedBox(width: 8.w),
+                          const SizedBox(width: 8),
                         ],
                         Text(
                           widget.text,
                           style: TextStyle(
                             color: widget.textColor ?? Colors.white,
-                            fontSize: 16.sp,
+                            fontSize: 16,
                             fontWeight: FontWeight.w600,
                           ),
                         ),

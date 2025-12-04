@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart' hide Transition;
 import '../../../../core/constants/app_colors.dart';
 import '../../../favorites/bloc/favorites_bloc.dart';
@@ -103,11 +102,11 @@ class _FoodCardState extends State<FoodCard>
           return Transform.scale(
             scale: _hoverAnimation.value,
             child: Container(
-              width: 190.w,
-              margin: EdgeInsets.only(right: 16.w),
+              width: 190,
+              margin: const EdgeInsets.only(right: 16),
               decoration: BoxDecoration(
                 color: AppColors.white,
-                borderRadius: BorderRadius.circular(24.r),
+                borderRadius: BorderRadius.circular(24),
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black.withValues(alpha: 0.08),
@@ -133,11 +132,11 @@ class _FoodCardState extends State<FoodCard>
                             ? 'food_${widget.menuItem!.id}'
                             : 'food_${widget.name}',
                         child: Container(
-                          height: 150.h,
+                          height: 150,
                           width: double.infinity,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.vertical(
-                              top: Radius.circular(24.r),
+                              top: Radius.circular(24),
                             ),
                             gradient: LinearGradient(
                               begin: Alignment.topLeft,
@@ -150,7 +149,7 @@ class _FoodCardState extends State<FoodCard>
                           ),
                           child: ClipRRect(
                             borderRadius: BorderRadius.vertical(
-                              top: Radius.circular(24.r),
+                              top: Radius.circular(24),
                             ),
                             child: Image.asset(
                               widget.image,
@@ -160,8 +159,8 @@ class _FoodCardState extends State<FoodCard>
                         ),
                       ),
                       Positioned(
-                        top: 12.h,
-                        right: 12.w,
+                        top: 12,
+                        right: 12,
                         child: BlocBuilder<FavoritesBloc, FavoritesState>(
                           builder: (context, state) {
                             bool isFavorite = false;
@@ -174,7 +173,7 @@ class _FoodCardState extends State<FoodCard>
                               child: ScaleTransition(
                                 scale: _favoriteAnimation,
                                 child: Container(
-                                  padding: EdgeInsets.all(10.w),
+                                  padding: const EdgeInsets.all(10),
                                   decoration: BoxDecoration(
                                     color: Colors.white,
                                     shape: BoxShape.circle,
@@ -192,7 +191,7 @@ class _FoodCardState extends State<FoodCard>
                                     isFavorite
                                         ? Icons.favorite
                                         : Icons.favorite_border,
-                                    size: 18.sp,
+                                    size: 18,
                                     color: isFavorite
                                         ? AppColors.favorite
                                         : AppColors.textSecondary,
@@ -205,30 +204,30 @@ class _FoodCardState extends State<FoodCard>
                       ),
                       // Rating badge
                       Positioned(
-                        top: 12.h,
-                        left: 12.w,
+                        top: 12,
+                        left: 12,
                         child: Container(
                           padding: EdgeInsets.symmetric(
-                            horizontal: 8.w,
-                            vertical: 4.h,
+                            horizontal: 8,
+                            vertical: 4,
                           ),
                           decoration: BoxDecoration(
                             color: Colors.black.withValues(alpha: 0.7),
-                            borderRadius: BorderRadius.circular(12.r),
+                            borderRadius: BorderRadius.circular(12),
                           ),
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Icon(
                                 Icons.star,
-                                size: 12.sp,
+                                size: 12,
                                 color: Colors.amber,
                               ),
-                              SizedBox(width: 2.w),
+                              const SizedBox(width: 2),
                               Text(
                                 widget.rating,
                                 style: TextStyle(
-                                  fontSize: 10.sp,
+                                  fontSize: 10,
                                   color: Colors.white,
                                   fontWeight: FontWeight.w600,
                                 ),
@@ -240,37 +239,37 @@ class _FoodCardState extends State<FoodCard>
                     ],
                   ),
                   Padding(
-                    padding: EdgeInsets.all(16.w),
+                    padding: const EdgeInsets.all(16),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           widget.name,
                           style: TextStyle(
-                            fontSize: 16.sp,
+                            fontSize: 16,
                             fontWeight: FontWeight.w700,
                             color: AppColors.textPrimary,
                           ),
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                         ),
-                        SizedBox(height: 8.h),
+                        const SizedBox(height: 8),
                         Text(
                           'Delicious and fresh',
                           style: TextStyle(
-                            fontSize: 12.sp,
+                            fontSize: 12,
                             color: AppColors.textSecondary,
                             fontWeight: FontWeight.w400,
                           ),
                         ),
-                        SizedBox(height: 12.h),
+                        const SizedBox(height: 12),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
                               widget.price,
                               style: TextStyle(
-                                fontSize: 18.sp,
+                                fontSize: 18,
                                 fontWeight: FontWeight.w800,
                                 color: AppColors.primary,
                               ),
@@ -281,10 +280,10 @@ class _FoodCardState extends State<FoodCard>
                                 return Transform.scale(
                                   scale: _pulseAnimation.value,
                                   child: Container(
-                                    padding: EdgeInsets.all(7.w),
+                                    padding: const EdgeInsets.all(7),
                                     decoration: BoxDecoration(
                                       gradient: AppColors.primaryGradient,
-                                      borderRadius: BorderRadius.circular(16.r),
+                                      borderRadius: BorderRadius.circular(16),
                                       boxShadow: [
                                         BoxShadow(
                                           color: AppColors.primary.withValues(alpha: 0.4),
@@ -296,7 +295,7 @@ class _FoodCardState extends State<FoodCard>
                                     child: Icon(
                                       Icons.add,
                                       color: Colors.white,
-                                      size: 18.sp,
+                                      size: 18,
                                     ),
                                   ),
                                 );
