@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import '../../core/constants/app_colors.dart';
 
@@ -72,85 +71,77 @@ class _AnimatedBottomNavState extends State<AnimatedBottomNav>
       child: Container(
         height: 65,
         margin: const EdgeInsets.all(16),
-        child: ClipRRect(
+        decoration: BoxDecoration(
+          color: Colors.white.withOpacity(0.95),
           borderRadius: BorderRadius.circular(20),
-          child: BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.white.withValues(alpha: 0.2),
-                borderRadius: BorderRadius.circular(20),
-                border: Border.all(
-                  color: Colors.white.withValues(alpha: 0.3),
-                  width: 1.5,
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withValues(alpha: 0.1),
-                    blurRadius: 20,
-                    offset: const Offset(0, 10),
-                  ),
-                ],
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: List.generate(_navItems.length, (index) {
-                  final isSelected = index == widget.currentIndex;
-                  return GestureDetector(
-                    onTap: () => widget.onTap(index),
-                    child: AnimatedBuilder(
-                      animation: _animations[index],
-                      builder: (context, child) {
-                        return Transform.scale(
-                          scale: _animations[index].value,
-                          child: AnimatedContainer(
-                            duration: const Duration(milliseconds: 300),
-                            curve: Curves.easeInOut,
-                            padding: EdgeInsets.symmetric(
-                              horizontal: isSelected ? 12 : 8,
-                              vertical: 6,
-                            ),
-                            decoration: BoxDecoration(
-                              gradient: isSelected ? AppColors.primaryGradient : null,
-                              borderRadius: BorderRadius.circular(16),
-                              boxShadow: isSelected ? [
-                                BoxShadow(
-                                  color: AppColors.primary.withValues(alpha: 0.3),
-                                  blurRadius: 8,
-                                  offset: const Offset(0, 4),
-                                ),
-                              ] : null,
-                            ),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Icon(
-                                  _navItems[index].icon,
-                                  size: 20,
-                                  color: isSelected ? Colors.white : AppColors.textPrimary,
-                                ),
-                                if (isSelected) ...[
-                                  const SizedBox(height: 2),
-                                  Text(
-                                    _navItems[index].label,
-                                    style: TextStyle(
-                                      fontSize: 9,
-                                      fontWeight: FontWeight.w600,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ],
-                              ],
-                            ),
+          border: Border.all(
+            color: Colors.white.withOpacity(0.3),
+            width: 1.5,
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              blurRadius: 20,
+              offset: const Offset(0, 10),
+            ),
+          ],
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: List.generate(_navItems.length, (index) {
+            final isSelected = index == widget.currentIndex;
+            return GestureDetector(
+              onTap: () => widget.onTap(index),
+              child: AnimatedBuilder(
+                animation: _animations[index],
+                builder: (context, child) {
+                  return Transform.scale(
+                    scale: _animations[index].value,
+                    child: AnimatedContainer(
+                      duration: const Duration(milliseconds: 300),
+                      curve: Curves.easeInOut,
+                      padding: EdgeInsets.symmetric(
+                        horizontal: isSelected ? 12 : 8,
+                        vertical: 6,
+                      ),
+                      decoration: BoxDecoration(
+                        gradient: isSelected ? AppColors.primaryGradient : null,
+                        borderRadius: BorderRadius.circular(16),
+                        boxShadow: isSelected ? [
+                          BoxShadow(
+                            color: AppColors.primary.withOpacity(0.3),
+                            blurRadius: 8,
+                            offset: const Offset(0, 4),
                           ),
-                        );
-                      },
+                        ] : null,
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(
+                            _navItems[index].icon,
+                            size: 20,
+                            color: isSelected ? Colors.white : AppColors.textPrimary,
+                          ),
+                          if (isSelected) ...[
+                            const SizedBox(height: 2),
+                            Text(
+                              _navItems[index].label,
+                              style: TextStyle(
+                                fontSize: 9,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ],
+                      ),
                     ),
                   );
-                }),
+                },
               ),
-            ),
-          ),
+            );
+          }),
         ),
       ),
     );
