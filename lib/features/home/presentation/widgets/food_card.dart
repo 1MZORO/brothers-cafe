@@ -127,34 +127,41 @@ class _FoodCardState extends State<FoodCard>
                 children: [
                   Stack(
                     children: [
-                      Hero(
-                        tag: widget.menuItem != null
-                            ? 'food_${widget.menuItem!.id}'
-                            : 'food_${widget.name}',
-                        child: Container(
-                          height: 150,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.vertical(
-                              top: Radius.circular(24),
-                            ),
-                            gradient: LinearGradient(
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight,
-                              colors: [
-                                AppColors.primary.withValues(alpha: 0.1),
-                                AppColors.secondary.withValues(alpha: 0.05),
-                              ],
-                            ),
+                      Container(
+                        height: 150,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.vertical(
+                            top: Radius.circular(24),
                           ),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.vertical(
-                              top: Radius.circular(24),
-                            ),
-                            child: Image.asset(
-                              widget.image,
-                              fit: BoxFit.cover,
-                            ),
+                          gradient: LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                            colors: [
+                              AppColors.primary.withOpacity(0.1),
+                              AppColors.secondary.withOpacity(0.05),
+                            ],
+                          ),
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.vertical(
+                            top: Radius.circular(24),
+                          ),
+                          child: Image.asset(
+                            widget.image,
+                            fit: BoxFit.cover,
+                            filterQuality: FilterQuality.none,
+                            isAntiAlias: false,
+                            errorBuilder: (context, error, stackTrace) {
+                              return Container(
+                                color: AppColors.cardBg,
+                                child: Icon(
+                                  Icons.fastfood,
+                                  size: 50,
+                                  color: AppColors.primary,
+                                ),
+                              );
+                            },
                           ),
                         ),
                       ),

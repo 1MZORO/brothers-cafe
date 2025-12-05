@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -148,18 +147,15 @@ class _FoodDetailScreenState extends State<FoodDetailScreen>
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [
-            AppColors.primary.withOpacity(0.1), // ✅ Fixed
+            AppColors.primary.withOpacity(0.1),
             AppColors.background,
           ],
         ),
       ),
       child: Stack(
         children: [
-          Hero(
-            tag: 'food_${widget.item.id}',
-            child: Center(
-              child: _buildItemImage(),
-            ),
+          Center(
+            child: _buildItemImage(),
           ),
           Positioned(
             top: 320,
@@ -171,13 +167,13 @@ class _FoodDetailScreenState extends State<FoodDetailScreen>
     );
   }
 
-  // ✅ Added: Safe image loading
   Widget _buildItemImage() {
     return Image.asset(
       widget.item.imageUrl,
       height: 300,
       fit: BoxFit.contain,
-      filterQuality: FilterQuality.low, // ✅ Helps with Impeller
+      filterQuality: FilterQuality.none,
+      isAntiAlias: false,
       errorBuilder: (context, error, stackTrace) {
         return Container(
           height: 300,
