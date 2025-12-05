@@ -103,7 +103,7 @@ class _FoodCardState extends State<FoodCard>
             scale: _hoverAnimation.value,
             child: Container(
               width: 190,
-              margin: const EdgeInsets.only(right: 16),
+              margin: const EdgeInsets.only(right: 16,bottom: 20),
               decoration: BoxDecoration(
                 color: AppColors.white,
                 borderRadius: BorderRadius.circular(24),

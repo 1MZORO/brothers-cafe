@@ -54,46 +54,43 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Color(0xFFFFF8F5),
-              Color(0xFFFFF2E8),
-              Color(0xFFFAFAFA),
-            ],
-          ),
-        ),
-        child: SafeArea(
-          child: FadeTransition(
-            opacity: _fadeAnimation,
-            child: SlideTransition(
-              position: _slideAnimation,
-              child: Column(
-                children: [
-                  _buildHeader(),
-                  Expanded(
-                    child: SingleChildScrollView(
-                      physics: const BouncingScrollPhysics(),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          _buildSearchSection(),
-                          const SizedBox(height: 24),
-                          const BannerWidget(),
-                          const SizedBox(height: 24),
-                          _buildCategoriesSection(),
-                          const SizedBox(height: 24),
-                          _buildFoodSection(),
-                          const SizedBox(height: 100),
-                        ],
-                      ),
+      backgroundColor: Colors.transparent,
+      body: _buildBody(),
+    );
+  }
+
+  Widget _buildBody() {
+    return Container(
+      decoration: const BoxDecoration(
+        gradient: AppColors.backgroundGradient,
+      ),
+      child: SafeArea(
+        child: FadeTransition(
+          opacity: _fadeAnimation,
+          child: SlideTransition(
+            position: _slideAnimation,
+            child: Column(
+              children: [
+                _buildHeader(),
+                Expanded(
+                  child: SingleChildScrollView(
+                    physics: const BouncingScrollPhysics(),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        _buildSearchSection(),
+                        const SizedBox(height: 24),
+                        const BannerWidget(),
+                        const SizedBox(height: 24),
+                        _buildCategoriesSection(),
+                        const SizedBox(height: 24),
+                        _buildFoodSection(),
+                        const SizedBox(height: 100),
+                      ],
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),
@@ -178,38 +175,7 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   Widget _buildCategoriesSection() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Text(
-            'Categories',
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w600,
-              color: AppColors.textPrimary,
-            ),
-          ),
-        ),
-        const SizedBox(height: 16),
-        SizedBox(
-          height: 40,
-          child: ListView(
-            scrollDirection: Axis.horizontal,
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            children: [
-              CategoryChip(title: 'All', isSelected: true),
-              CategoryChip(title: 'Coffee'),
-              CategoryChip(title: 'Breakfast'),
-              CategoryChip(title: 'Lunch'),
-              CategoryChip(title: 'Dessert'),
-            ],
-          ),
-        ),
-
-      ],
-    );
+    return CategoriesSection();
   }
 
   Widget _buildFoodSection() {
@@ -273,7 +239,7 @@ class _HomeScreenState extends State<HomeScreen>
         ),
         const SizedBox(height: 16),
         SizedBox(
-          height: 280,
+          height: 300,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.symmetric(horizontal: 20),
