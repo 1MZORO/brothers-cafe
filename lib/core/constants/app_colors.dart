@@ -52,6 +52,9 @@ class AppColors {
       Color(0xFFFFF5F1),
       Color(0xFFFFE8DC),
       Color(0xFFFAFAFA),
+      //     AppColors.primary.withValues(alpha: 0.1),
+      //     AppColors.secondary.withValues(alpha: 0.05),
+      //     AppColors.background,
     ],
   );
 

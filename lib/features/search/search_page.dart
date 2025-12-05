@@ -8,15 +8,16 @@ class SearchPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            AppColors.primary.withValues(alpha: 0.1),
-            AppColors.secondary.withValues(alpha: 0.05),
-            AppColors.background,
-          ],
-        ),
+        gradient: AppColors.backgroundGradient,
+        // LinearGradient(
+        //   begin: Alignment.topLeft,
+        //   end: Alignment.bottomRight,
+        //   colors: [
+        //     AppColors.primary.withValues(alpha: 0.1),
+        //     AppColors.secondary.withValues(alpha: 0.05),
+        //     AppColors.background,
+        //   ],
+        // ),
       ),
       child: SafeArea(
         child: Padding(
@@ -34,10 +35,10 @@ class SearchPage extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 5),
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(28),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black.withValues(alpha: 0.1),
